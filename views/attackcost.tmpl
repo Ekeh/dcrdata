@@ -13,6 +13,7 @@
       data-attackcost-ticket-price="{{.TicketPrice}}"
       data-attackcost-ticket-pool-value="{{.TicketPoolValue}}"
       data-attackcost-ticket-pool-size="{{.TicketPoolSize}}"
+     data-attackcost-coin-supply="{{.CoinSupply}}"
     >
     <div class="col-md-24 p-0">
       <div class="bg-white mb-1 py-2 px-3 my-0">
@@ -353,7 +354,9 @@
               New total staked will be <span class="font-weight-bold" data-target="attackcost.newTicketPoolValue">0</span> <span class="fs11"> DCR</span>.
             </div>
 
-            <div class="mt-1 ml-2" data-target="attackcost.projectedPriceDiv" style="{display: block}">
+{{/*ATTACK COST POSSIBILITY DISPLAY*/}}
+<div data-target="attackcost.projectedPriceWrapperDiv">
+          <div class="mt-1 ml-2" data-target="attackcost.projectedPriceDiv" style="{display: block}">
               The projected ticket price is
               <span class="position-relative font-weight-bold">
               <span class="font-weight-bold" data-target="attackcost.projectedTicketPrice">0</span>
@@ -373,6 +376,11 @@
                 <span data-target="attackcost.dcrPriceLabel">0</span><span class="fs11"> USD/DCR</span>
               </span>)
             </div>
+</div>
+<div data-target="attackcost.attackNotPossibleWrapperDiv" class="blink-container" style="color: #f12222; margin-left: 8px; ">
+Attack Not Possible
+</div>
+
 
           </div>
 

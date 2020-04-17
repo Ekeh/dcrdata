@@ -2331,6 +2331,7 @@ func (exp *explorerUI) AttackCost(w http.ResponseWriter, r *http.Request) {
 	ticketPoolSize := exp.pageData.HomeInfo.PoolInfo.Size
 	ticketPrice := exp.pageData.HomeInfo.StakeDiff
 	HashRate := exp.pageData.HomeInfo.HashRate
+	coinSupply := exp.pageData.HomeInfo.CoinSupply
 
 	exp.pageData.RUnlock()
 
@@ -2342,6 +2343,7 @@ func (exp *explorerUI) AttackCost(w http.ResponseWriter, r *http.Request) {
 		TicketPrice     float64
 		TicketPoolSize  int64
 		TicketPoolValue float64
+		CoinSupply      int64
 	}{
 		CommonPageData:  exp.commonData(r),
 		HashRate:        HashRate,
@@ -2350,6 +2352,7 @@ func (exp *explorerUI) AttackCost(w http.ResponseWriter, r *http.Request) {
 		TicketPrice:     ticketPrice,
 		TicketPoolSize:  int64(ticketPoolSize),
 		TicketPoolValue: ticketPoolValue,
+		CoinSupply:      coinSupply,
 	})
 
 	if err != nil {
