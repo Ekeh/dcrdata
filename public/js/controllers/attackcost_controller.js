@@ -452,7 +452,7 @@ export default class extends Controller {
     this.attackPosPercentAmountLabelTarget.innerHTML = digitformat(this.targetPosTarget.value, 2)
     this.setAllValues(this.totalDCRPosLabelTargets, digitformat(totalDCRPos, 2))
     this.setAllValues(this.dcrPriceLabelTargets, digitformat(dcrPrice, 2))
-    this.checkAttackPossibility(totalDCRPos)
+    this.checkAttackPossibility(DCRNeed)
   }
 
   setAllValues (targets, data) {
@@ -471,9 +471,9 @@ export default class extends Controller {
     targets.forEach(el => el.classList.remove('d-none'))
   }
 
-  checkAttackPossibility (totalDCRPos) {
+  checkAttackPossibility (DCRNeed) {
     var totalCoinSupply = ((coinSupply) / 100000000)
-    if (totalDCRPos > totalCoinSupply) {
+    if (DCRNeed > totalCoinSupply) {
       this.coinSupplyTarget.textContent = digitformat(totalCoinSupply, 2)
       this.hideAll(this.projectedPriceWrapperDivTargets)
       this.showAll(this.attackNotPossibleWrapperDivTargets)
