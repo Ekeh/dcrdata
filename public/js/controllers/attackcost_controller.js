@@ -122,7 +122,8 @@ export default class extends Controller {
       'total', 'totalDCRPos', 'totalDeviceCost', 'totalElectricity', 'totalExtraCostRate', 'totalKwh',
       'totalPos', 'totalPow', 'graph', 'labels', 'projectedTicketPrice', 'projectedTicketPriceIncrease', 'attackType',
       'attackPosPercentAmountLabel', 'dcrPriceLabel', 'totalDCRPosLabel',
-      'projectedPriceDiv', 'projectedPriceWrapperDiv', 'attackNotPossibleWrapperDiv', 'coinSupply'
+      'projectedPriceDiv', 'projectedPriceWrapperDiv', 'attackNotPossibleWrapperDiv', 'coinSupply',
+      'totalAttackCostContainer', 'attackCostImpossibleContainer'
     ]
   }
 
@@ -476,10 +477,15 @@ export default class extends Controller {
     if (DCRNeed > totalCoinSupply) {
       this.coinSupplyTarget.textContent = digitformat(totalCoinSupply, 2)
       this.hideAll(this.projectedPriceWrapperDivTargets)
+      this.hideAll(this.totalAttackCostContainerTargets)
       this.showAll(this.attackNotPossibleWrapperDivTargets)
+      this.showAll(this.attackCostImpossibleContainerTargets)
+    
     } else {
       this.hideAll(this.attackNotPossibleWrapperDivTargets)
+      this.hideAll(this.attackCostImpossibleContainerTargets)
+      this.showAll(this.totalAttackCostContainerTargets)
       this.showAll(this.projectedPriceWrapperDivTargets)
-    }
+      }
   }
 }
